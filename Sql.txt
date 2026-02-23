@@ -1,0 +1,172 @@
+Welcome to Node.js v24.13.1.
+Type ".help" for more information.
+> CREATE TABLE schools (
+CREATE TABLE schools (
+       ^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'TABLE'
+>     id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
+       ^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'SERIAL'
+>     name VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+         ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'VARCHAR'
+>     bin VARCHAR(12) UNIQUE NOT NULL,
+    bin VARCHAR(12) UNIQUE NOT NULL,
+        ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'VARCHAR'
+>     region VARCHAR(100),
+    region VARCHAR(100),
+           ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'VARCHAR'
+>     city VARCHAR(100),
+    city VARCHAR(100),
+         ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'VARCHAR'
+>     address VARCHAR(255)
+    address VARCHAR(255)
+            ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'VARCHAR'
+> );
+);
+^
+
+Uncaught SyntaxError: Unexpected token ')'
+>
+> CREATE TABLE users (
+CREATE TABLE users (
+       ^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'TABLE'
+>     id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
+       ^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'SERIAL'
+>     full_name VARCHAR(255) NOT NULL,
+    full_name VARCHAR(255) NOT NULL,
+              ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'VARCHAR'
+>     email VARCHAR(255) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+          ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'VARCHAR'
+>     password VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+             ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'VARCHAR'
+>     role VARCHAR(20) CHECK (role IN ('superadmin','director','teacher','student','parent')),
+    role VARCHAR(20) CHECK (role IN ('superadmin','director','teacher','student','parent')),
+         ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'VARCHAR'
+>     school_id INT REFERENCES schools(id) ON DELETE CASCADE
+    school_id INT REFERENCES schools(id) ON DELETE CASCADE
+              ^^^
+
+Uncaught SyntaxError: Unexpected identifier 'INT'
+> );
+);
+^
+
+Uncaught SyntaxError: Unexpected token ')'
+>
+> CREATE TABLE classes (
+CREATE TABLE classes (
+       ^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'TABLE'
+>     id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
+       ^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'SERIAL'
+>     name VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+         ^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'VARCHAR'
+>     grade INT NOT NULL,
+    grade INT NOT NULL,
+          ^^^
+
+Uncaught SyntaxError: Unexpected identifier 'INT'
+>     school_id INT REFERENCES schools(id) ON DELETE CASCADE
+    school_id INT REFERENCES schools(id) ON DELETE CASCADE
+              ^^^
+
+Uncaught SyntaxError: Unexpected identifier 'INT'
+> );
+);
+^
+
+Uncaught SyntaxError: Unexpected token ')'
+>
+> CREATE TABLE students_classes (
+CREATE TABLE students_classes (
+       ^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'TABLE'
+>     student_id INT REFERENCES users(id) ON DELETE CASCADE,
+    student_id INT REFERENCES users(id) ON DELETE CASCADE,
+               ^^^
+
+Uncaught SyntaxError: Unexpected identifier 'INT'
+>     class_id INT REFERENCES classes(id) ON DELETE CASCADE,
+    class_id INT REFERENCES classes(id) ON DELETE CASCADE,
+             ^^^
+
+Uncaught SyntaxError: Unexpected identifier 'INT'
+>     PRIMARY KEY (student_id, class_id)
+    PRIMARY KEY (student_id, class_id)
+            ^^^
+
+Uncaught SyntaxError: Unexpected identifier 'KEY'
+> );
+);
+^
+
+Uncaught SyntaxError: Unexpected token ')'
+>
+> CREATE TABLE notifications (
+CREATE TABLE notifications (
+       ^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'TABLE'
+>     id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
+       ^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'SERIAL'
+>     message TEXT NOT NULL,
+    message TEXT NOT NULL,
+            ^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'TEXT'
+>     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+               ^^^^^^^^^
+
+Uncaught SyntaxError: Unexpected identifier 'TIMESTAMP'
+>     user_id INT REFERENCES users(id) ON DELETE CASCADE
+    user_id INT REFERENCES users(id) ON DELETE CASCADE
+            ^^^
+
+Uncaught SyntaxError: Unexpected identifier 'INT'
+> );
+);
+^
+
+Uncaught SyntaxError: Unexpected token ')'
+>

@@ -1,0 +1,60 @@
+Welcome to Node.js v24.13.1.
+Type ".help" for more information.
+> const express = require('express');
+Uncaught Error: Cannot find module 'express'
+Require stack:
+- <repl>
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1448:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1234:25)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1548:12)
+    at require (node:internal/modules/helpers:152:16) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '<repl>' ]
+}
+> const { Pool } = require('pg');
+Uncaught Error: Cannot find module 'pg'
+Require stack:
+- <repl>
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1448:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+    at Module._load (node:internal/modules/cjs/loader:1234:25)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.require (node:internal/modules/cjs/loader:1548:12)
+    at require (node:internal/modules/helpers:152:16) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '<repl>' ]
+}
+>
+> const app = express();
+Uncaught ReferenceError: express is not defined
+> const port = process.env.PORT || 3000;
+undefined
+>
+> // Railway берген дерекқор параметрлерін пайдалану
+undefined
+> const pool = new Pool({
+|   user: process.env.PGUSER,
+|   host: process.env.PGHOST,
+|   database: process.env.PGDATABASE,
+|   password: process.env.PGPASSWORD,
+|   port: process.env.PGPORT,
+| });
+Uncaught ReferenceError: Pool is not defined
+>
+> app.get('/', async (req, res) => {
+|   const result = await pool.query('SELECT NOW()');
+|   res.send(`BilimApp Node.js сервері жұмыс істеп тұр! Уақыт: ${result.rows[0].now}`);
+| });
+Uncaught ReferenceError: app is not defined
+>
+> app.listen(port, () => {
+|   console.log(`Server running on port ${port}`);
+| });
+Uncaught ReferenceError: app is not defined
+>
